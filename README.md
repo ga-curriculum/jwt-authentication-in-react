@@ -1,4 +1,4 @@
-# ![[tktk Module Name]](./assets/tktk-hero.png)
+# ![React Authentication with JWT](./assets/tktk-hero.png)
 
 ## About
 
@@ -12,21 +12,23 @@ tktk Write a short but descriptive summary of the content in this module.
 
 ## Content
 
-| Lesson | Video Time | Video | Skills |
-| ------ |:----------:|:-----:| ------ |
-| [Setup](./setup/README.md)                               | -- | -- | Setting up the development environment  |
-| [Concepts](./concepts/README.md)                         | -- | -- | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-01/README.md) | -- | -- | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-02/README.md) | -- | -- | tktk skills covered                     |
-| [tktk Microlesson Name](./tktk-microlesson-03/README.md) | -- | -- | tktk skills covered                     |
-| **Total content**                                        | -- | -- |                                         |
+| Lesson | Skills |
+| ------ | ------ |
+| [Setup](./setup/README.md)                               | Setting up the development environment  |
+| [Concepts](./concepts/README.md)                         | Describe how React manages authentication tokens                     |
+| [Creating an Authentication Gateway](./creating-an-authentication-gateway/README.md) | tktk skills covered                     |
+| [Signing Up a New User](./signing-up-a-new-user/README.md) | tktk skills covered                     |
+| [Signing In an Existing User](./signing-in-an-existing-user/README.md) | tktk skills covered                     |
+| [Using Local Storage](./using-local-storage/README.md) | tktk skills covered                     |
+| [Signing Out](./signing-out/README.md) | tktk skills covered                     |
+
 
 ## Level Up content
 
-| Lesson | Video Time | Video | Skills |
-| ------ |:----------:|:-----:| ------ |
-| [tktk Microlesson Name](./tktk-microlesson-04/README.md) | -- | -- | tktk skills covered                     |
-| **Total Level Up content**                               | -- | -- |                                         |
+| Lesson | Skills |
+| ------ | ------ |
+| [The useContext Hook](./the-useContext-hook/README.md) | tktk skills covered                     |
+
 
 ## References
 
