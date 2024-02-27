@@ -14,9 +14,9 @@ tktk Write a short but descriptive summary of the content in this module.
 
 | Lesson | Skills |
 | ------ | ------ |
-| [Setup](./setup/README.md)                               | Setting up the development environment  |
-| [Concepts](./concepts/README.md)                         | Describe how React manages authentication tokens                     |
-| [Creating an Authentication Gateway](./creating-an-authentication-gateway/README.md) | tktk skills covered                     |
+| [Setup](./setup/README.md) | Setting up the development environment.  |
+| [Concepts](./concepts/README.md) | Describe how React manages authentication tokens. |
+| [Creating an Authentication Gateway](./creating-an-authentication-gateway/README.md) | Create the navbar that users can use for auth. |
 | [Signing Up a New User](./signing-up-a-new-user/README.md) | tktk skills covered                     |
 | [Signing In an Existing User](./signing-in-an-existing-user/README.md) | tktk skills covered                     |
 | [Using Local Storage](./using-local-storage/README.md) | tktk skills covered                     |
