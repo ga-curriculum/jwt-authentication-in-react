@@ -29,6 +29,12 @@ cd react-auth-jwt
 npm i
 ```
 
+Let's also install React Router to allow for our url routes to help decide which components are rendered:
+
+```bash
+npm i react-router-dom
+```
+
 Open the project's folder in your code editor:
 
 ```bash
