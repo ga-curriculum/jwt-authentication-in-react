@@ -1,6 +1,6 @@
 # ![React Authentication with JWT - Creating an Authentication Gateway](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to add a navbar component to the React app which will act as an authentication gateway for users to interact with.
 
 
 ## Navbar display based on auth status
@@ -26,8 +26,8 @@ const NavBar = ({ user, handleLogout }) => {
         <nav>
           <ul>
             <li>Welcome, {user.name}</li>
-            {/* <li><Link to="/profiles">Profiles</Link></li> */}
-            {/* <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li> */}
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
           </ul>
         </nav>
       :

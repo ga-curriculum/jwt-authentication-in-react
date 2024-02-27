@@ -1,4 +1,4 @@
-# ![[tktk Module Name] - Setup](./assets/hero.png)
+# ![React Authentication with JWT - Setup](./assets/hero.png)
 
 ## Setup
 
