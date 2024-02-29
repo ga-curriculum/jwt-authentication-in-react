@@ -225,6 +225,13 @@ VITE_BASE_URL='http://localhost:3000'
 Lastly, we will modify the `handleSubmit` function in our `SignupForm` to set the state to the returned user:
 
 ```jsx
+// SignupForm.jsx
+import * as authService from '../../services/authService'
+
+.
+.
+.
+
 const handleSubmit = async (e) => {
     e.preventDefault()
     try {
