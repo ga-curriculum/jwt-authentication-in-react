@@ -2,13 +2,16 @@
 
 ## About
 
-tktk Write a short but descriptive summary of the content in this module.
+In this module, students will learn how to create and authenticate users in React using JWT tokens generated from their own Express backend API.
 
 ## Prerequisites
 
-- tktk
-- tktk
-- tktk
+- React State Management
+- Controlled Forms in React
+- Lifting State in React Components
+- Fetching Data in React
+- Authenticating an Express API with JWT
+- React Router
 
 ## Content
 
@@ -17,30 +20,22 @@ tktk Write a short but descriptive summary of the content in this module.
 | [Setup](./setup/README.md) | Setting up the development environment.  |
 | [Concepts](./concepts/README.md) | Describe how React manages authentication tokens. |
 | [Creating an Authentication Gateway](./creating-an-authentication-gateway/README.md) | Create the navbar that users can use for auth. |
-| [Signing Up a New User](./signing-up-a-new-user/README.md) | tktk skills covered                     |
-| [Signing In an Existing User](./signing-in-an-existing-user/README.md) | tktk skills covered                     |
-| [Using Local Storage](./using-local-storage/README.md) | tktk skills covered                     |
-| [Signing Out](./signing-out/README.md) | tktk skills covered                     |
+| [Signing Up a New User](./signing-up-a-new-user/README.md) | Create a form that allows a user to sign up. |
+| [Signing In an Existing User](./signing-in-an-existing-user/README.md) | Create a form that signs in an existing user. |
+| [Using Local Storage](./using-local-storage/README.md) | Adding the JWT to `localStorage` for a session that persists. |
+| [Signing Out](./signing-out/README.md) | Create a method that allows the user to logout. |
 
 
 ## Level Up content
 
 | Lesson | Skills |
 | ------ | ------ |
-| [The useContext Hook](./the-useContext-hook/README.md) | tktk skills covered                     |
+| [The useContext Hook](./the-useContext-hook/README.md) | Pass data deeply with the `useContext` hook. |
 
 
 ## References
 
 📖 [Reference Materials](./references/README.md)
-
-## Deployed sites
-
-tktk If there is not a deployed site related to this module this section and all of its content should be removed.
-
-🌐 [Live site](#tktk-deployed-app-url)
-
-🐙 [Repository](#tktk-repository-for-deployed-app)
 
 ## Internal resources
 
