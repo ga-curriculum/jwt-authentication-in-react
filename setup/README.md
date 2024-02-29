@@ -86,18 +86,53 @@ Open the `App.jsx` file in the `src` directory and replace the contents of it wi
 
 ```jsx
 // src/App.jsx
-import { useState } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import NavBar from './components/NavBar/NavBar';
 
 const App = () => {
   const [user, setUser] = useState(null)
 
   return (
-    <h1>Hello world!</h1>
+    <>
+      <NavBar user={user} />
+      <h1>Hello world!</h1>
+    <>
   )
 }
 
 export default App
+```
+
+Now let's create our `NavBar` component.  First we need to create the components folder:
+
+```bash
+mkdir src/components
+```
+
+We will then create the `NavBar` folder in the components folder:
+
+```bash
+mkdir src/components/NavBar
+```
+
+Finally, we will create our `NavBar` component:
+
+```bash
+touch src/components/NavBar/NavBar.jsx
+```
+
+Add the following to your `NavBar` component:
+
+```jsx
+const NavBar = ({ user }) => {
+  return (
+    <>
+      <p>Hello Navbar</p>
+    <>
+  )
+}
+export default NavBar
 ```
 
 ### GitHub setup
