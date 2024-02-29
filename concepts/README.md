@@ -30,7 +30,7 @@ There are a few ways the token can be sent:
 
 Using a library like Axios with interceptors will automatically add the `Authorization` header for all outgoing requests, but we can also manually configure this like so:
 
-```js
+```javascript
 const options = {
   headers: {
     Authorization: `Bearer ${localStorage.getItem('auth_toke')}`,
