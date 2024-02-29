@@ -104,6 +104,26 @@ const App = () => {
 export default App
 ```
 
+### Configure React Router
+We need to set our app up to be able to use React Router.  Let's change `main.jsx` to the following:
+
+```jsx
+import { BrowserRouter } from 'react-router-dom'; // import BrowserRouter
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import App from './App.jsx';
+import './index.css';
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <BrowserRouter> // wrap the App component with the BrowserRouter
+      <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+)
+```
+
+### Create a `NavBar`
 Now let's create our `NavBar` component.  First we need to create the components folder:
 
 ```bash
