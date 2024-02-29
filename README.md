@@ -30,20 +30,12 @@ In this module, students will learn how to create and authenticate users in Reac
 
 | Lesson | Skills |
 | ------ | ------ |
-| [The useContext Hook](./the-useContext-hook/README.md) | tktk skills covered                     |
+| [The useContext Hook](./the-useContext-hook/README.md) | Pass data deeply with the `useContext` hook. |
 
 
 ## References
 
 📖 [Reference Materials](./references/README.md)
-
-## Deployed sites
-
-tktk If there is not a deployed site related to this module this section and all of its content should be removed.
-
-🌐 [Live site](#tktk-deployed-app-url)
-
-🐙 [Repository](#tktk-repository-for-deployed-app)
 
 ## Internal resources
 
