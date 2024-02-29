@@ -1,5 +1,83 @@
-# ![[tktk Module Name] - tktk Microlesson Name](./assets/hero.png)
+# ![React Authentication JWT - Using `localStorage`](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to store their JWT token in `localStorage` to help persist a session in their React App.
 
-Add localStorage to persist the token in the browser so that refreshes and leaving/returning won't log out the user.
+## Using `localStorage`
+
+We have the ability to sign in to our application if the page is refreshed we lose that session.  We can use `localStorage` in our browser to make our JWT token available to us regardless of page refresh.  Let's add that logic to our functionality.
+
+
+### Modifying our `signin` service.
+
+We can set the JWT token given to us in the sign in process within our `signin` service.  This will ensure that any time a user signs in to our app the token is set until we do something to clear the storage.
+
+Modify the `signin` service function to the following:
+
+```jsx
+// src/services/authService.js
+async function signin(user) {
+  try {
+    const res = await fetch(`${BACKEND_URL}/users/signin`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(user),
+    })
+    const json = await res.json()
+
+    if (json.token) {
+      localStorage.setItem('token', json.token); // add this line to store the JWT token in localStorage
+
+      const user = JSON.parse(atob(json.token.split('.')[1]));
+      
+      return user
+    }
+    if (json.err) {
+      throw new Error(json.err)
+    }
+  } catch (err) {
+    console.log(err)
+    throw err
+  }
+}
+```
+
+### Create a method that will check for a token
+
+With our logic to add a token to `localStorage` in place, we can now write and implement logic to check for that token.  First we'll add the method in the `authService.js` file:
+
+```javascript
+// src/services/authService.js
+.
+.
+.
+const getUser = () =>  {
+  
+  const token = localStorage.getItem('token');
+
+  if (!token) return null;
+
+  const user = JSON.parse(atob(token.split('.')[1]));
+
+  return user;
+}
+```
+
+The service above is meant to check `localStorage` for a token.  If one does not exsist, `null` will be returned.  If one does exist and it has a user, this will be returned to whatever is calling it.
+
+### Add logic to call this service
+
+We can now bring the existing service into our `App.jsx` component to set the default value of our user in state:
+
+`App.jsx`:
+```jsx
+import * as authService from '../src/services/authService'; // import the authservice
+
+const App = () => {
+  const [user, setUser] = useState(getUser()); // using the method from authservice
+
+.
+.
+.
+```
+
+After we sign a user in we can refresh the page and see that our session still persists!
