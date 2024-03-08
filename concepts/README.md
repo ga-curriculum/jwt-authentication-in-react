@@ -13,7 +13,7 @@ In order to obtain a user's login information, the React application presents a 
 2. **API call**
 Once the form is submitted, the application sends an API call to the backend using libraries like [Axios](https://axios-http.com/docs/intro) or [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
 
-This call usually includes the user's credentials in the request body or URL parameters. The backend endpoint responsible for handling login requests receives this data. 
+This call usually includes the user's credentials in the request body. The backend endpoint responsible for handling login requests receives this data. 
 
 3. **Backend authentication**
 
@@ -28,18 +28,17 @@ There are a few ways the token can be sent:
 - **JSON format**: Embedded in the response body as a JSON object with a token key
 - **HTTP header**: Included in a custom header like `Authorization` or `X-AuthToken`.
 
-Using a library like Axios with interceptors will automatically add the `Authorization` header for all outgoing requests, but we can also manually configure this like so:
+In our basic fetch requests, we can include the `headers` property in our `options` object to include the token in our quests, like so:
 
 ```javascript
 const options = {
   headers: {
-    Authorization: `Bearer ${localStorage.getItem('auth_toke')}`,
+    Authorization: `Bearer ${localStorage.getItem('auth_token')}`,
   },
 };
-axios.get('/protected-resource', options);
+fetch('/protected-resource', options);
 
 ```
-
 
 - **URL parameter**: Appended to the response URL as a query parameter
 

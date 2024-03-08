@@ -6,9 +6,9 @@
 
 We have established a pattern for creating a user from our React app to our Express app.  We can now take some of the principles established to help us log the user into our React app.
 
-### Creating our Signin Form
+### Creating our Sign In Form
 
-Let's create, import, and render the Signin form we will be using for this process:
+Let's create, import, and render the Sign In form we will be using for this process:
 
 ```bash
 mkdir src/components/SigninForm
@@ -99,7 +99,7 @@ Our next step is to navigate to the `authService.js` file and add the `signin` f
 ```javascript
 // authService.js
 
-async function signin(user) {
+const signin = async (user) => {
   try {
     const res = await fetch(`${BACKEND_URL}/users/signin`, {
       method: 'POST',
@@ -108,22 +108,27 @@ async function signin(user) {
     })
     const json = await res.json()
 
+    if (json.error) {
+      throw new Error(json.error)
+    }
+
     if (json.token) {
       const user = JSON.parse(atob(json.token.split('.')[1]));
       return user
-    }
-
-    if (json.err) {
-      throw new Error(json.err)
     }
   } catch (err) {
     console.log(err)
     throw err
   }
 }
+
+export {
+  signup,
+  signin
+}
 ```
 
-One thing to note with the above code is the `JSON.parse(atob(json.token.split('.')[1]));` line.  This line is essentially taking the JWT token that is sent back to us from our Express server and splitting it.  We are then storing the resulting object in a variable named `user` and returning it to what has called it.
+One thing to note with the above code is the `JSON.parse(atob(json.token.split('.')[1]));` line.  This line is essentially taking the JWT token that is sent back to us from our Express server, decoding it, and splitting it.  We are then storing the resulting object in a variable named `user` and returning it as the end result of this function.
 
 
 ### Importing and rendering our `Signin` form.
@@ -156,4 +161,8 @@ import SigninForm from './components/SigninForm/SigninForm'
   )
 ```
 
-We can now try to signin an existing user from our database.  If everything works, we should be able to see the "Dashboard" page after a successful signin.  However, if we refresh the page our state is reverted to `null`.  We can fix tha with the use of `localStorage`.
+We can now try to sign in an existing user from our database.  If everything works, we should be able to see the "Dashboard" page after a successful sign in.  However, if we refresh the page our state is reverted to `null`.  
+
+Our goal is to ultimately store the authentication token in a place our React app will always be able to find it, even after a refresh.
+
+We can fix that with the use of `localStorage`.
