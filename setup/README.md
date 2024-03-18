@@ -97,7 +97,7 @@ const App = () => {
     <>
       <NavBar user={user} />
       <h1>Hello world!</h1>
-    <>
+    </>
   )
 }
 
@@ -116,7 +116,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter> // wrap the App component with the BrowserRouter
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
@@ -149,7 +149,7 @@ const NavBar = ({ user }) => {
   return (
     <>
       <p>Hello Navbar</p>
-    <>
+    </>
   )
 }
 export default NavBar

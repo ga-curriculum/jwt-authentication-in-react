@@ -4,7 +4,7 @@
 
 ## Signing Out
 
-Our users now need to have the ability to signout of their session and our render components accordingly.  For this process we really only need to create a method and attach it to a link.
+Our users now need to have the ability to signout of their session and our render components accordingly.  For this process, we really only need to create a method and attach it to a link.
 
 ### Making our `signout` service:
 
@@ -12,22 +12,19 @@ In `authService.js`, let's create the method that will allow users to signout:
 
 ```jsx
 // src/services/authService.js
-async function signout() {
-  try {
-    const res = await fetch(`${BACKEND_URL}/users/logout`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }
-    })
-
+const signout = () => {
     localStorage.removeItem('token');
-  } catch (err) {
-    console.log(err)
-    throw err
-  }
+}
+
+export {
+  signup,
+  signin,
+  getUser,
+  signout
 }
 ```
 
-The above method sends a `POST` request to our `logout` route and if we are greeted with a successful response we will remove the token from `localStorage`.  If we get an error we will log said error to the console.
+Note that, with token-based authentication, we didn't even need to make a fetch request to our back-end. This is because token authentication is **stateless**, as Express keeps no records of the tokens it has issued.
 
 ### Implementing the `signout` method:
 

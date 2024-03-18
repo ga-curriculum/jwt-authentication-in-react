@@ -10,7 +10,9 @@ We want our navigation links to render according to whether a user is logged in 
 **Logged in**: Display a greeting and a **Log Out** link.
 **Not logged in**: Display **Log In** and **Sign up** links.
 
-Thanks to our starter code, we're already passing user to the navbar as state.
+Thanks to our starter code, we're already passing `user` to the navbar as state. 
+
+We're managing the `user` state in our `App.jsx` level component, since the whole app will likely want access to the current user. We can manage changes to the logged-in user in the root-level component, and the rest of the application will receive those updates from App.
 
 A simple way to accomplish what we're aiming for is to use a ternary in our component return. 
 
@@ -27,13 +29,13 @@ const NavBar = ({ user }) => {
           <ul>
             <li>Welcome, { user.username }</li>
             <li><Link to='/'>Dashboard</Link></li>
-            <li><Link to=''>LOG OUT</Link></li>
+            <li><Link to=''>SIGN OUT</Link></li>
           </ul>
         </nav>
       :
         <nav>
           <ul>
-            <li><Link to='/login'>Log In</Link></li>
+            <li><Link to='/signin'>Sign In</Link></li>
             <li><Link to='/signup'>Sign Up</Link></li>
           </ul>
         </nav>
@@ -45,7 +47,9 @@ const NavBar = ({ user }) => {
 export default NavBar
 ```
 
-Based on the logic we have added to the NavBar, if a user exists in state they will see their name with a link to the "Dashboard".  If a user is not in state they will see links to signup or login.
+Based on the logic we have added to the NavBar, if a user exists in state they will see their name with a link to the "Dashboard".  
+
+If a user is not in state, they will see links to signup or login.
 
 We can extend this further to displaying a component based on the user state with React Router.
 
@@ -72,7 +76,7 @@ const Dashboard = ({ user }) => {
   )
 }
 
-export default Dashboard
+export default Dashboard;
 ```
 
 Add the following to your `Landing` component:
@@ -82,15 +86,15 @@ const Landing = () => {
   return (
     <main>
       <h1>Hello, you are on the landing page for visitors.</h1>
-      <h3>If you create a sign up, you will have the ability to log in and see your super secret dashboard.</h3>
+      <h3>If you sign up for a new account, you will have the ability to sign in and see your super secret dashboard.</h3>
     </main>
   )
 }
 
-export default Landing
+export default Landing;
 ```
 
-Lastly, let's modify our `App.jsx` to import these components and use React Router to help us with conditionally rendering these components:
+Finally, let's modify our `App.jsx` to import these components and use React Router to help us with conditionally rendering these components:
 
 ```jsx
 // App.jsx
@@ -120,5 +124,6 @@ const App = () => {
 
 export default App
 ```
+
 
 You can experiment with displaying the components by changing the initial state of `user` from `null` to something like `{ username: 'Shawn Doe' }` and back to view the different templates.

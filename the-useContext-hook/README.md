@@ -1,12 +1,14 @@
 # ![React Authentication JWT - The `useContext` hook](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to tktk
+**Learning objective:** By the end of this lesson, students will be able to manage app-level users through the useContext hook
 
-Instead of storing the user in the App.js state and passing it down through every component everywhere, refactor to use the useContext hook and provide the user and their JWT as globally accessible pieces of state.
+Instead of storing the user in the App.js state and passing it down through every component everywhere, we can refactor to use the `useContext` hook and provide the user as a globally accessible piece of state.
 
 ## The `useContext` hook
 
-Here we will import and implement the `useContext` hook to help make our user available to any components that need it without the need for passing the user as a prop.
+For a more global approach to state management, React provides us with the `useContext` hook. This hook allows us to create globally accessible pieces of React state, without having to tediously pass props through many layers of comopnents. Instead, we can go directly to a single source of state!
+
+Therefore, for our authentication purposes, we will import and implement the `useContext` hook to help make our user available to any components that need it without the need for passing the user as a prop.
 
 ### Creating the "context" for our App
 
@@ -41,7 +43,7 @@ return (
 }
 ```
 
-The above code brings in the `createContext` hook to allow us to provide a value for our other components to grab when needed.  We then define the context as `AuthedUserContext` and set that to an initial value of `null`.  Lastly, we will wrap all of the nested components with this `<AuthedUserContext.Provider value={user}>` and set that value to whatever the state of our component is.  This is nice because as the state of our `App` component is updatad so will the value of this context as well.  We can also remove the `user` prop from the `NavBar` and `Dashboard` components.
+The above code brings in the `createContext` hook to allow us to provide a value for our other components to grab when needed.  We then define the context as `AuthedUserContext` and set that to an initial value of `null`.  Lastly, we will wrap all of the nested components with this `<AuthedUserContext.Provider value={user}>` and set that value to whatever the state of our component is.  This is nice because as the state of our `App` component is updated, so will the value of this context.  We can also remove the `user` prop from the `NavBar` and `Dashboard` components.
 
 ### Provide context to the components that need it
 
@@ -70,6 +72,6 @@ const Dashboard = () => {
 
 ```
 
-In both cases we are bringing in the `useContext` hook to access the values provided from our newly created `AuthedUserContext`.  Since this value is updated whenever our state is updated via a signin or signout the context is also passed to any components that use it.
+In both cases we are bringing in the `useContext` hook to access the values provided from our newly created `AuthedUserContext`.  Since this value is updated whenever our state is updated via a signin or signout, the context is also passed to any components that use it.
 
-Give it a try and if your components behave as you had them congrats!!  You are providing the values via `useContext`
+Give it a try and if your components behave the same way as before, then congrats!!  You are providing the values via `useContext`, and any other component wanting access to the `user` will be able to do the same.
