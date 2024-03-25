@@ -1,4 +1,4 @@
-# ![React Authentication with JWT - Concepts](./assets/hero.png)
+# ![JWT Authentication in React - Concepts](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to discuss the basic concepts of JWT Authentication in React. 
 

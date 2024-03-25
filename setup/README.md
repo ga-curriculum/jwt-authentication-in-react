@@ -1,4 +1,4 @@
-# ![React Authentication with JWT - Setup](./assets/hero.png)
+# ![JWT Authentication in React - Setup](./assets/hero.png)
 
 ## Setup
 

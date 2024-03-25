@@ -1,4 +1,4 @@
-# ![React Authentication with JWT](./assets/tktk-hero.png)
+# ![JWT Authentication in React](./assets/hero.png)
 
 ## About
 
@@ -25,13 +25,11 @@ In this module, students will learn how to create and authenticate users in Reac
 | [Using Local Storage](./using-local-storage/README.md) | Adding the JWT to `localStorage` for a session that persists. |
 | [Signing Out](./signing-out/README.md) | Create a method that allows the user to logout. |
 
-
 ## Level Up content
 
 | Lesson | Skills |
 | ------ | ------ |
 | [The useContext Hook](./the-useContext-hook/README.md) | Pass data deeply with the `useContext` hook. |
-
 
 ## References
 

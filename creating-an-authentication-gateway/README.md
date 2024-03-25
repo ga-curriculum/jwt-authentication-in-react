@@ -1,4 +1,4 @@
-# ![React Authentication with JWT - Creating an Authentication Gateway](./assets/hero.png)
+# ![JWT Authentication in React - Creating an Authentication Gateway](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to add a navbar component to the React app which will act as an authentication gateway for users to interact with.
 

@@ -1,4 +1,4 @@
-# ![React Authentication with JWT - Signing Up A New User](./assets/hero.png)
+# ![JWT Authentication in React - Signing Up A New User](./assets/hero.png)
 
 **Learning objective:** By the end of this lesson, students will be able to use a controlled form t create a user by making an API call to their Express backend.
 
