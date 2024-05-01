@@ -1,10 +1,10 @@
 # ![JWT Authentication in React - Signing Up A New User](./assets/hero.png)
 
-**Learning objective:** By the end of this lesson, students will be able to use a controlled form t create a user by making an API call to their Express backend.
+**Learning objective:** By the end of this lesson, learners will be able to develop and integrate a controlled form in React to register new users, including handling form submissions and making API calls to an Express backend for user creation.
 
-## Signing Up A New User
+## Signing up a new user
 
-Now that we have logic in place to show certain components based on whether or not a user is authenticad in our app, we need to allow creation of a user.
+Now it's time to integrate functionality to allow new users to sign up in our application. This will involve creating a form where users can input their details, and then sending this information to our backend server.
 
 ### Creating our component
 
@@ -15,22 +15,23 @@ mkdir src/components/SignupForm
 touch src/components/SignupForm/SignupForm.jsx
 ```
 
-In our `SignupForm` component, we will add the form for our new user.  A user has two attributes:
+In our `SignupForm` component, we will add the form for our new user. A user has two attributes:
 
 - username
 - password
 
-Since our passwords are going to be hashed on the backend, we will only worry about plain text passwords in our front end. We will also add a passwordConfirm field to have a little frontend validation making sure the user matches the password they have created.
+This password will be hashed on the backend, so we handle it as plain text here. Additionally, we will include a password confirmation field to add a layer of client-side validation.
 
 Add the following to `SignupForm.jsx`:
 
 ```jsx
 // SignupForm.jsx
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SignupForm = (props) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [message, setMessage] = useState(['']);
   const [formData, setFormData] = useState({
     username: '',
@@ -40,23 +41,23 @@ const SignupForm = (props) => {
 
   const updateMessage = (msg) => {
     setMessage(msg);
-  }
+  };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-  }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     updateMessage('');
     console.log(formData); // this line will print the form data to the console
-  }
+  };
 
-  const { username, password, passwordConf } = formData
+  const { username, password, passwordConf } = formData;
 
   const isFormInvalid = () => {
-    return !(username && password && password === passwordConf)
-  }
+    return !(username && password && password === passwordConf);
+  };
 
   return (
     <main>
@@ -64,53 +65,54 @@ const SignupForm = (props) => {
       <p>{message}</p>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='username'>Username:</label>
+          <label htmlFor="username">Username:</label>
           <input
-            type='text'
-            id='name'
+            type="text"
+            id="name"
             value={username}
-            name='username'
+            name="username"
             onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor='password'>Password:</label>
+          <label htmlFor="password">Password:</label>
           <input
-            type='password'
-            id='password'
+            type="password"
+            id="password"
             value={password}
-            name='password'
+            name="password"
             onChange={handleChange}
           />
         </div>
         <div>
-          <label htmlFor='confirm'>Confirm Password:</label>
+          <label htmlFor="confirm">Confirm Password:</label>
           <input
-            type='password'
-            id='confirm'
+            type="password"
+            id="confirm"
             value={passwordConf}
-            name='passwordConf'
+            name="passwordConf"
             onChange={handleChange}
           />
         </div>
         <div>
           <button disabled={isFormInvalid()}>Sign Up</button>
-          <Link to='/'><button>Cancel</button></Link>
+          <Link to="/">
+            <button>Cancel</button>
+          </Link>
         </div>
       </form>
     </main>
-  )
-}
+  );
+};
 
-export default SignupForm
+export default SignupForm;
 ```
 
-There's a lot to unpack in this component, so take a few minutes to read through the code and figure out what's going on. A few features include:
+There's a lot to unpack in this component, so take a few minutes to read through the code and figure out what's going on. Note these features:
 
-- Using the `disabled` property to prevent a user from submitting the form until the validation function confirms the request will have a chance of succeeding
-- A `message` property in state that will handle future error messages from the server, such as the username already being taken
-- Standard, controlled form functionality managing the state of the sign up form
-
+- Standard, controlled form functionality where form data is handled by the state within the component
+- Using the `disabled` property. This attribute can be dynamically set based on certain conditions. For instance, you could disable the submission button until the user fills all the fields correctly, and the passwords entered in both password fields match.
+- A `message` property in state that will handle future error messages from the server, such as the username already being taken. Server interactions can result in various responses, and handling these appropriately enhances user experience.
 
 ### Adding our `SignupForm` to `App.jsx`:
 
@@ -137,24 +139,24 @@ return (
         :
           <Route path="/" element={<Landing />} />
       }
-        
-      <Route path='/signup' element={<SignupForm />} /> // importing the signup form here
+
+      <Route path='/signup' element={<SignupForm />} /> // import the signup form here
     </Routes>
   </>
 )
 ```
 
-Now that we have our `SignupForm` rendering when we navigate to `/signup`, we can play around with the form and try to add data.  
+Now that we have our `SignupForm` rendering when we navigate to `/signup`, we can play around with the form and try to add data.
 
-We have setup our `handleSubmit` function to log our `formData` to the console.  Try it out.  If you see your form data in the developer console you are ready to connect it to the state of the `App` component.
+We have setup our `handleSubmit` function to log our `formData` to the console. Try it out. If you see your form data in the developer console you are ready to connect it to the state of the `App` component.
 
-### Connecting our form to `App` state:
+## Connecting our form to `App` state:
 
 We want to make sure that our form submission modifies the state of our app component and mimics the process of signing in. Let's begin that process by passing `setUser` as a prop to our `SignupForm` component:
 
 ```jsx
 // App.jsx
-<Route path='/signup' element={<SignupForm setUser={setUser} />} />
+<Route path="/signup" element={<SignupForm setUser={setUser} />} />
 ```
 
 We can now take that prop and use it to set the `user` state of our app in the `handleSubmit` function of our `SignupForm` component:
@@ -162,6 +164,7 @@ We can now take that prop and use it to set the `user` state of our app in the `
 ```jsx
 // SignupForm.jsx
 const SignupForm = (props) => {
+
 .
 .
 .
@@ -170,7 +173,7 @@ const SignupForm = (props) => {
     e.preventDefault()
     try {
       props.setUser(formData) // this will modify the state in the App component
-      navigate('/') // upon redirect you will see the "Dashboard" page 
+      navigate('/') // upon redirect you will see the "Dashboard" page
     } catch (err) {
       updateMessage(err.message)
     }
@@ -178,15 +181,15 @@ const SignupForm = (props) => {
 }
 ```
 
-With this logic in place you should be able to fill the form out, submit, and be redirected to the "Dashboard" page.  If you refresh the page, the state will be reset to `null` and you will see the "Landing" page. The behavior lets you know that your form is one step closer to signing up a new user.
+With this logic in place you should be able to fill the form out, submit, and be redirected to the "Dashboard" page. If you refresh the page, the state will be reset to `null` and you will see the "Landing" page. The behavior lets you know that your form is one step closer to signing up a new user.
 
-### Connecting our form to an AuthService
+## Connecting our form to an AuthService
 
-Now that our form is functioning, it is now time to connect the form to a fetch request that will sign a user up via our Express backend.  
+Now that our form is functioning, it is now time to connect the form to a fetch request that will sign a user up via our Express backend.
 
 We will write the logic for this call in an `authService` that will better organize our logic.
 
-First, we'll create our `services` directory and nested `authService.js` file:
+First, we'll create a `services` directory and nested `authService.js` file:
 
 ```bash
 mkdir src/services
@@ -197,7 +200,8 @@ Next, we'll define our `signin` method in the `authService.js`:
 
 ```javascript
 // src/services/authService.js
-const BACKEND_URL = "http://localhost:3000" // this is our Express API url
+
+const BACKEND_URL = 'http://localhost:3000'; // this is our Express API url
 
 const signup = async (formData) => {
   try {
@@ -205,29 +209,30 @@ const signup = async (formData) => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData),
-    })
-    const json = await res.json()
+    });
+    const json = await res.json();
     if (json.err) {
-      throw new Error(json.err)
+      throw new Error(json.err);
     }
-    return json
+    return json;
   } catch (err) {
-    console.log(err)
-    throw err
+    console.log(err);
+    throw err;
   }
-}
+};
 
 export default {
-  signup
-}
+  signup,
+};
 ```
-The logic above makes a `POST` call to our Express server at `/users/signup`.  If we successfully sign up a user, that user object is returned to us.  If not, an error is thrown and we will see it in the console.
 
-### Refactoring our BACKEND_URL
+The logic above makes a `POST` request to our Express server at `/users/signup`. If we successfully sign up a user, that user object is returned to us. If not, an error is thrown and we will see it in the console.
+
+## Refactoring our BACKEND_URL
 
 With a SPA like React, we want the backend and frontend to be as loosely coupled as possible. This means, instead of hard-coding our `localhost:3000` address into the codebase, we want to use an environment variable that can change depending on context.
 
-When we deploy the app, all we'll need is to tell the React app where the backend is located, using an environment variable.
+That way, when we deploy an app, all we need to do is tell the React app where the backend is located, using an environment variable.
 
 So, we need to create a `.env` file that will contain our url:
 
@@ -236,6 +241,7 @@ touch .env
 ```
 
 `.env`:
+
 ```
 VITE_EXPRESS_BACKEND_URL='http://localhost:3000'
 ```
@@ -247,7 +253,7 @@ Be sure to also add `.env` to the list in your `.gitignore` file, so that our lo
 Now, we can refactor our authService to access this variable for use in all fetch calls:
 
 ```jsx
-const BACKEND_URL = import.meta.env.VITE_EXPRESS_BACKEND_URL 
+const BACKEND_URL = import.meta.env.VITE_EXPRESS_BACKEND_URL;
 ```
 
 Now that our service is set up for sign in, we will modify the `handleSubmit` function in our `SignupForm` to use the authService function, and set the state to the returned user:
@@ -274,7 +280,7 @@ const handleSubmit = async (e) => {
 
 ## Cross Origin Resource Sharing
 
-If you just tried out the code we added, you were likely disappointed by a "Failed to Fetch" message. 
+If you just tried out the code we added, you were likely disappointed by a "Failed to Fetch" message.
 
 The browser dev console would also have told you about a CORS policy that blocked the request.
 
@@ -282,7 +288,7 @@ By default, most servers (like Express) don't like getting requests from another
 
 So, we have to modify our Express back-end to allow for Cross Origin Resource Sharing requests, or CORS requests. Fortunately, the `cors` middleware library makes this incredibly simple.
 
-First, install the `cors` library in your express project:
+First, install the `cors` library in your express server application:
 
 ```bash
 npm i cors
@@ -298,9 +304,9 @@ const cors = require('cors');
 app.use(cors())
 ```
 
-You can read further in the [express documentation](https://expressjs.com/en/resources/middleware/cors.html) on how to configure CORS policy more securely, such as specifying the origin of your React app and only allowing requests from that address.
+You can read further in the [Express documentation](https://expressjs.com/en/resources/middleware/cors.html) on how to configure CORS policy more securely, such as specifying the origin of your React app and only allowing requests from that address.
 
-NOW, feel free to test the form by signing up a new user: it should work this time!
+NOW, test the form by signing up a new user: it should work this time!
 
 And with that, you have created a `SignupForm` that creates a brand new user from your server.
 
