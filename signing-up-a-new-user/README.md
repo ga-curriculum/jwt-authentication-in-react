@@ -228,7 +228,7 @@ export default {
 
 The logic above makes a `POST` request to our Express server at `/users/signup`. If we successfully sign up a user, that user object is returned to us. If not, an error is thrown and we will see it in the console.
 
-## Refactoring our BACKEND_URL
+## Updating our BACKEND_URL
 
 With a SPA like React, we want the backend and frontend to be as loosely coupled as possible. This means, instead of hard-coding our `localhost:3000` address into the codebase, we want to use an environment variable that can change depending on context.
 
@@ -255,6 +255,8 @@ Now, we can refactor our authService to access this variable for use in all fetc
 ```jsx
 const BACKEND_URL = import.meta.env.VITE_EXPRESS_BACKEND_URL;
 ```
+
+## Using `authService`
 
 Now that our service is set up for sign in, we will modify the `handleSubmit` function in our `SignupForm` to use the authService function, and set the state to the returned user:
 
