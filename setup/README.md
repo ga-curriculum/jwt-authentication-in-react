@@ -22,13 +22,22 @@ nodemon server.js
 
 ### Create your server .env
 
-If using the provided starter code for your server, you'll need to create a `.env` with `MONGODB_URI` and `JWT_SECRET` to hold values used in the auth logic. `MONGODB_URI` will connect to your MongoDB Atlas connection string so you will need to establish one for this application.  `JWT_SECRET` will aid in your JWT token signing logic.
+To configure your server using the provided starter code, you'll need to set up a `.env` file that includes both the `MONGODB_URI` and `JWT_SECRET`:
 
-Add a `.env` file to your server application and add the following secret keys:
+1. **Establish a MongoDB Connection:**
+   - Sign up or log into MongoDB Atlas and create a new database cluster. 
+   - Generate a connection string for your MongoDB Atlas database, which will be used as your `MONGODB_URI`.
 
-```text
-MONGODB_URI=
-JWT_SECRET=
+2. **Create JWT_SECRET:**
+   - The `JWT_SECRET` is a secret key used for signing your JWT tokens. Choose a secure and random string.
+
+3. **Set Up Your `.env` File:**
+   - In the root directory of your server application, create a `.env` file.
+   - Add your MongoDB connection string and JWT secret to this file as follows:
+
+```plaintext
+MONGODB_URI=your_mongodb_atlas_connection_string_here
+JWT_SECRET=your_secure_random_string_here
 ```
 
 Start the server and you are ready to start on the React front-end!
