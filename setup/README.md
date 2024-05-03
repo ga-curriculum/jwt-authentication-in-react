@@ -190,20 +190,36 @@ const NavBar = ({ user }) => {
 export default NavBar
 ```
 
+### Running the development server
+
+To start the development server and view our app in the browser, we'll use the following command: 
+
+```bash
+npm run dev
+```
+
+You should see that `Vite` is available on port number 5173: 
+
+```plaintext
+localhost:5173
+```
+
 ### GitHub setup
 
 To add this project to GitHub, initialize a Git repository:
 
 ```bash
 git init
+git add .
+git commit -m "init commit"
 ```
 
-Make a new repository on [GitHub](https://github.com/) named `react-authentication-jwt`. 
+Make a new repository on [GitHub](https://github.com/) named react-jwt-auth-template. 
 
 Link your local project to your remote GitHub repo:
 
 ```bash
-git remote add origin https://github.com/<github-username>/react-authentication-jwt.git
+git remote add origin https://github.com/<github-username>/react-jwt-auth-template.git
 git push origin main
 ```
 
