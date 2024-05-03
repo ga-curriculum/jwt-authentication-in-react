@@ -6,7 +6,7 @@
 
 ## Obtaining the token
 
-![tktk Hunter - a recycled asset from the Express API JWT lesson could be helpful here]()
+![Token Auth Flow](./assets/token-generated.png)
 
 1. **Signin form** - In order to obtain a user's login information, the React application presents a sign in form where they can enter their credentials.
 
@@ -76,6 +76,8 @@ Libraries like [Redux](https://redux.js.org/) or [Zustand](https://docs.pmnd.rs/
 ## Sending tokens with future requests
 
 Once you have stored the authentication token, you will need to include this token in the headers of subsequent requests to access protected resources. This ensures that each request is authenticated, allowing the server to verify that the requester has the necessary permissions.
+
+![Token Auth Flow](./assets/token-used.png)
 
 Here’s how to include the token using the fetch API in JavaScript:
 
