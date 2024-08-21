@@ -221,7 +221,7 @@ const signup = async (formData) => {
   }
 };
 
-export default {
+export {
   signup,
 };
 ```
