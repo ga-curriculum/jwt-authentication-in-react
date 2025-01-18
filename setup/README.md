@@ -1,55 +1,101 @@
-# ![JWT Authentication in React - Setup](./assets/hero.png)
+<h1>
+  <span class="headline">JWT Authentication in React</span>
+  <span class="subhead">Setup</span>
+</h1>
 
-## Setup
+## Set up the Express API
 
-### Running the Express backend
+The app we're building in this lecture will require a back-end to handle requests from your React app. If you already have the Express API with JWT Authentication template set up, skip to the **Use an existing Express API with JWT Authentication template** section below. Otherwise, start from here and follow the steps to set up your development environment.
 
-Before diving into our React app development, you'll need to ensure that the Express backend server is operational. This backend will handle requests from your React app. Follow these steps to set up the server:
+### Get the Express API with JWT Authentication template
 
-Open your Terminal application and navigate to your **`~/code/ga/lectures/express-api-jwt-auth-template`** directory:
+Open your Terminal application and navigate to your `~/code/ga/lectures/` directory:
+
+```bash
+cd ~/code/ga/lectures/
+```
+
+Clone the Express API with JWT Authentication template from the [solution code repo](https://git.generalassemb.ly/modular-curriculum-all-courses/express-api-jwt-auth-template):
+
+```bash
+git clone https://git.generalassemb.ly/modular-curriculum-all-courses/express-api-jwt-auth-template.git
+```
+
+Move into the directory you just cloned the template repo into:
+
+```bash
+cd express-api-jwt-auth-template
+```
+
+Install the dependencies:
+
+```bash
+npm i
+```
+
+Open the project in your VS Code:
+
+```bash
+code .
+```
+
+Open the built-in terminal in VS Code. You'll need to set up a `.env` file that includes values for the  `MONGODB_URI` and `JWT_SECRET` before the app can function. Start by creating the `.env` file:
+
+```bash
+touch .env
+```
+
+Add your MongoDB URI to the `.env` file. It will look similar to the following but with your username, password, and database name:
+
+```plaintext
+MONGODB_URI=mongodb+srv://<username>:<password>@sei-w0kys.azure.mongodb.net/express-api-jwt-auth?retryWrites=true
+```
+
+> ⚠️ If you're unsure where to obtain your MongoDB URI, please refer to the MongoDB Atlas Setup Lab.
+
+On the next line in the `.env` file, add a `JWT_SECRET`:
+
+```plaintext
+JWT_SECRET=your_secure_random_string_here
+```
+
+> ⚠️ Replace `your_secure_random_string_here` with a secure random string of your choice.
+
+You're done! If everything went well, you should be able to run the server with this command:
+
+```bash
+npm run dev
+```
+
+You should see a message that the Express app is ready and that you've connected to a MongoDB database. Troubleshoot any errors before continuing.
+
+Skip to the **Create the React front-end** section below.
+
+### Use an existing Express API with JWT Authentication template
+
+Move into the `~/code/ga/lectures/express-api-jwt-auth-template` directory:
 
 ```bash
 cd ~/code/ga/lectures/express-api-jwt-auth-template
 ```
 
-Once there, run your server with `nodemon`:
+Open the project in your VS Code:
 
 ```bash
-nodemon server.js
+code .
 ```
 
-> Note: If your `express-api-jwt-auth-template` backend is incomplete, you can obtain a fully implemented version from the [solution code repo](https://git.generalassemb.ly/modular-curriculum-all-courses/express-api-jwt-auth-template). Remember to install all necessary dependencies with `npm i` and establish a connection to your MongoDB Atlas by adding a connection string in a `.env` file.
-
-### Create your server .env
-
-To configure your server using the provided starter code, you'll need to set up a `.env` file that includes both the `MONGODB_URI` and `JWT_SECRET`:
-
-1. **Establish a MongoDB Connection:**
-   - Sign up or log into MongoDB Atlas and create a new database cluster. 
-   - Generate a connection string for your MongoDB Atlas database, which will be used as your `MONGODB_URI`.
-
-2. **Create JWT_SECRET:**
-   - The `JWT_SECRET` is a secret key used for signing your JWT tokens. Choose a secure and random string.
-
-3. **Set Up Your `.env` File:**
-   - In the root directory of your server application, create a `.env` file.
-   - Add your MongoDB connection string and JWT secret to this file as follows:
-
-```plaintext
-MONGODB_URI=your_mongodb_atlas_connection_string_here
-JWT_SECRET=your_secure_random_string_here
-```
-
-Start the server and you are ready to start on the React front-end!
+Open the integrated terminal in VS Code and run the server:
 
 ```bash
-nodemon start
+npm run dev
 ```
 
+You should see a message that the Express app is ready and that you've connected to a MongoDB database. Troubleshoot any errors before continuing.
 
-## Creating our React frontend
+## Set up the React front-end
 
-In a separate terminal window, navigate to your **`~/code/ga/lectures`** directory:
+Return to your terminal window, and navigate to your `~/code/ga/lectures` directory:
 
 ```bash
 cd ~/code/ga/lectures
@@ -61,7 +107,7 @@ Create a new Vite project for your React app:
 npm create vite@latest
 ```
 
-You'll be prompted to choose a project name. Let's name it `react-jwt-auth-template`. 
+You'll be prompted to choose a project name. Let's name it `react-jwt-auth-template`.
 
 - Select a framework. Use the arrow keys to choose the `React` option and hit `Enter`.
 
@@ -77,45 +123,74 @@ npm i
 We will also need to install React Router for this application:
 
 ```bash
-npm i react-router-dom
+npm i react-router
 ```
 
-Open the project's folder in your code editor:
+Open the project directory in VS Code:
 
 ```bash
 code .
 ```
 
-### Configuring ESLint
+### Configure ESLint
 
-Before we begin, we need to adjust the ESLint configuration. Add the following rules to the `.eslintrc.cjs` file:
+Before we begin, we need to adjust the ESLint configuration. Add the indicated rules to the `rules` object in your `eslint.config.js` file:
 
-```js
-rules: {
-  'react-refresh/only-export-components': [
-    'warn',
-    { allowConstantExport: true },
-  ],
-  'react/prop-types': 'off', // add this line
-  'react/no-unescaped-entities': 'off' // add this line
-},
+```javascript
+    rules: {
+      ...js.configs.recommended.rules,
+      ...react.configs.recommended.rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...reactHooks.configs.recommended.rules,
+      'react/jsx-no-target-blank': 'off',
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true },
+      ],
+      'react/prop-types': 'off', // add this line
+      'react/no-unescaped-entities': 'off', // add this line
+    },
 ```
 
-The first addition prevents warnings if you're not declaring types for your props (which we're not), and the second prevents warnings if you're using contractions within JSX.
+The first addition prevents warnings if you don't declare types for your props (which we're not), and the second prevents warnings if you use contractions within JSX.
 
-## Configure React Router
+### Add environment variables
+
+We want the back-end and front-end to be as loosely coupled as possible. This means instead of hard-coding our `localhost:3000` address into the codebase, we want to use an environment variable that can change depending on context.
+
+That way, when we deploy an app, we only need to tell the React app where the back-end is located using an environment variable.
+
+So, we need to create a `.env` file that will contain our URL:
+
+```bash
+touch .env
+```
+
+Then add the following line to the `.env` file:
+
+```plaintext
+VITE_BACK_END_SERVER_URL=http://localhost:3000
+```
+
+If this variable name seems awkward, it's because [Vite's environment variables](https://vitejs.dev/guide/env-and-mode) must start with `VITE_` for the client application to read it.
+
+Also, add `.env` to the list in your `.gitignore` file so that our local version doesn't travel with the final deployed app.
+
+### Add routing with React Router
 
 To enable navigation and routing in your React application, you need to integrate React Router. This setup allows your application to handle different URLs and display the appropriate content without reloading the page. Let's change `main.jsx` to the following:
 
 ```jsx
 // src/main.jsx
 
-import { BrowserRouter } from 'react-router-dom'; // import BrowserRouter
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
-import './index.css';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router' // add import for BrowserRouter
+import './index.css'
+import App from './App.jsx'
 
+// Wrap the App component with the BrowserRouter component to enable
+// enable route handling throughout your application.
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -125,84 +200,67 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 )
 ```
 
-Start by importing BrowserRouter from 'react-router-dom', which is the router component responsible for managing the history API used in our web app.
+### Create a `NavBar`
 
-This code sets up the React Router wrapped around your App component, enabling route handling throughout your application.
+Now let's create our `NavBar` component. First, we'll need to create a `components` directory with a `NavBar` directory inside it and a `NavBar.jsx` component file inside it:
 
-## Clear `App.jsx`
+```bash
+mkdir src/components
+mkdir src/components/NavBar
+touch src/components/NavBar/NavBar.jsx
+```
+
+Add the following to the new `NavBar` component:
+
+```jsx
+// src/components/NavBar/NavBar.jsx
+
+const NavBar = () => {
+  return (
+    <nav>
+      <p>Navbar contents will go here.</p>
+    </nav>
+  );
+};
+
+export default NavBar;
+
+```
+
+### Clear `App.jsx`
 
 Open the `App.jsx` file in the `src` directory and replace the contents of it with the following:
 
 ```jsx
 // src/App.jsx
 
-import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import NavBar from './components/NavBar/NavBar';
+import NavBar from "./components/NavBar/NavBar";
 
 const App = () => {
-  const [user, setUser] = useState(null)
-
+  
   return (
     <>
-      <NavBar user={user} />
-      <h1>Hello world!</h1>
+      <NavBar />
+      <h1>Hello, friend!</h1>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
+
 ```
 
-We'll be starting this build with a `NavBar` component and a `user` set in state.
+Note that we're importing and using the `NavBar` component that we just made in the `App` component.
 
+### Start the development server
 
-### Create a `NavBar`
-
-Now let's create our `NavBar` component. First we need to create the components folder:
-
-```bash
-mkdir src/components
-```
-
-We will then create the `NavBar` folder:
-
-```bash
-mkdir src/components/NavBar
-```
-
-Finally, we will create our `NavBar` component:
-
-```bash
-touch src/components/NavBar/NavBar.jsx
-```
-
-Add the following to your `NavBar` component:
-
-```jsx
-const NavBar = ({ user }) => {
-  return (
-    <>
-      <p>Hello Navbar</p>
-    </>
-  )
-}
-export default NavBar
-```
-
-### Running the development server
-
-To start the development server and view our app in the browser, we'll use the following command: 
+To start the development server and view our app in the browser, we'll use the following command:
 
 ```bash
 npm run dev
 ```
 
-You should see that `Vite` is available on port number 5173: 
-
-```plaintext
-localhost:5173
-```
+If you're not running any other React apps, you should see that `Vite` is available on port number 5173. Open your browser and navigate to [`http://localhost:5173/`](http://localhost:5173). You should see the text "Navbar contents will go here" and a "Hello, friend!" heading on the page.
 
 ### GitHub setup
 
@@ -214,7 +272,7 @@ git add .
 git commit -m "init commit"
 ```
 
-Make a new repository on [GitHub](https://github.com/) named react-jwt-auth-template. 
+Make a new repository on [GitHub](https://github.com/) named `react-jwt-auth-template`.
 
 Link your local project to your remote GitHub repo:
 

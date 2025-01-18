@@ -1,16 +1,15 @@
-# ![JWT Authentication in React - References](./assets/hero.png)
+<h1>
+  <span class="headline">JWT Authentication in React</span>
+  <span class="subhead">References</span>
+</h1>
 
 ## Lesson references
 
-- [JWT (JSON Web Token)](https://jwt.io/introduction)
-- [Axios](https://axios-http.com/docs/intro)
-- [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
-- [Redux](https://redux.js.org/)
-- [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction)
-- [Vite's environment variables](https://vitejs.dev/guide/env-and-mode)
-- [Express documentation on CORS](https://expressjs.com/en/resources/middleware/cors.html)
-
-## Level Up references
-
-- [useContext](https://react.dev/reference/react/useContext)
-
+- [Vite - Env Variables and Modes](https://vitejs.dev/guide/env-and-mode)
+- [JWT - Introduction to JSON Web Tokens](https://jwt.io/introduction)
+- [MDN - Cross-site scripting (XSS)](https://developer.mozilla.org/en-US/docs/Web/Security/Attacks/XSS)
+- [MDN - CSRF](https://developer.mozilla.org/en-US/docs/Glossary/CSRF)
+- [Auth0 - Auth0 Single Page App SDK](https://auth0.com/docs/libraries/auth0-single-page-app-sdk)
+- [MDN - Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API)
+- [React - `createContext`](https://react.dev/reference/react/createContext)
+- [React - `useContext`](https://react.dev/reference/react/useContext)

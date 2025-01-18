@@ -1,0 +1,66 @@
+import "https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/static/v2/pkl/template.pkl" as Template
+
+// Add microlessons here, in the order they should be delivered
+
+setup = new Template.Microlesson {
+  friendlyName = "Setup"
+  dirName = "setup"
+  type = "Content"
+  videoUrl = ""
+}
+
+concepts = new Template.Microlesson {
+  friendlyName = "Concepts"
+  dirName = "concepts"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildSignUpFunctionality = new Template.Microlesson {
+  friendlyName = "Build Sign-Up Functionality"
+  dirName = "build-sign-up-functionality"
+  type = "Content"
+  videoUrl = ""
+}
+
+theUseContextHook = new Template.Microlesson {
+  friendlyName = "The <code>useContext()</code> Hook"
+  dirName = "the-use-context-hook"
+  type = "Content"
+  videoUrl = ""
+}
+
+useLocalStorageToPersistSessions = new Template.Microlesson {
+  friendlyName = "Use <code>localStorage</code> to Persist Sessions"
+  dirName = "use-local-storage-to-persist-sessions"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildSignOutFunctionality = new Template.Microlesson {
+  friendlyName = "Build Sign-Out Functionality"
+  dirName = "build-sign-out-functionality"
+  type = "Content"
+  videoUrl = ""
+}
+
+buildSignInFunctionality = new Template.Microlesson {
+  friendlyName = "Build Sign-In Functionality"
+  dirName = "build-sign-in-functionality"
+  type = "Content"
+  videoUrl = ""
+}
+
+conditionallyRenderInARoute = new Template.Microlesson {
+  friendlyName = "Conditionally Render in a Route"
+  dirName = "conditionally-render-in-a-route"
+  type = "Content"
+  videoUrl = ""
+}
+
+makeAuthenticatedRequests = new Template.Microlesson {
+  friendlyName = "Make Authenticated Requests"
+  dirName = "make-authenticated-requests"
+  type = "Content"
+  videoUrl = ""
+}

@@ -1,57 +1,9 @@
-# ![JWT Authentication in React - Creating an Authentication Gateway](./assets/hero.png)
+<h1>
+  <span class="headline">JWT Authentication in React</span>
+  <span class="subhead">Creating an Authentication Gateway</span>
+</h1>
 
 **Learning objective:** By the end of this lesson, learners will be able to implement a dynamic navigation bar in a React application that adjusts its content based on the user's authentication status.
-
-## Conditional navbar rendering based on authentication status
-
-To enhance user experience, it's common to alter the nav bar's content based on whether the user is logged in or not. Here’s a straightforward approach to implementing this in a React application using conditional rendering:
-
-- **Logged in**: Display a greeting and a **Sign Out** link.
-- **Not logged in**: Display **Sign In** and **Sign up** links.
-
-Thanks to our starter code, we're already passing `user` to the navbar as state.
-
-We manage the `user` state at the `App.jsx` level to make the user's authentication status accessible throughout the application. This central management allows us to easily pass the `user` state down to components that need it, such as the `NavBar`.
-
-A simple way to accomplish what we're aiming for is to use a ternary operator in our component return.
-
-Add the following code in `NavBar.jsx`:
-
-```jsx
-import { Link } from 'react-router-dom';
-
-const NavBar = ({ user }) => {
-  return (
-    <>
-      { user ? (
-        <nav>
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="">Sign Out</Link></li>
-          </ul>
-        </nav>
-      ) : (
-        <nav>
-          <ul>
-            <li><Link to="/signin">Sign In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-          </ul>
-        </nav>
-      )}
-    </>
-  )
-}
-
-export default NavBar;
-```
-
-Based on the logic we have added to the `NavBar`,
-
-- if a `user` exists in state they will see a link to the `/` home page that we will call "Dashboard".
-
-- if a `user` is not in state, they will see links to `signup` or `signin`.
-
-We can extend this further to displaying a component based on the user state with React Router.
 
 ### Creating our components
 

@@ -1,10 +1,35 @@
-# ![JWT Authentication in React](./assets/hero.png)
+<h1>
+  <span class="prefix"></span>
+  <span class="headline">JWT Authentication in React</span>
+</h1>
 
 ## About
 
-This module is designed to equip learners with the foundational skills and knowledge needed to implement JSON Web Token (JWT) authentication in React applications. By exploring JWT mechanics, building essential authentication components, and integrating with an Express backend, students will develop a comprehensive understanding and practical skills in managing user authentication. By the end of this module, students will have constructed a robust authentication codebase that can serve as a template for future projects.
+This module will equip learners with the foundational skills and knowledge to implement JSON Web Token (JWT) authentication in React applications. By exploring JWT mechanics, building essential authentication components, and integrating with a back-end, students will develop a comprehensive understanding and practical skills in managing user authentication.
 
-## Prerequisites
+By the end of this module, students will have constructed a robust authentication codebase that can serve as a template for future projects.
+
+## Content
+
+| Lesson                                                                                      | Skills                                                                       |
+|---------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| [Setup](./setup/README.md)                                                                  | Set up the development environment.                                          |
+| [Concepts](./concepts/README.md)                                                            | Describe the use of JWT authentication within a React application.           |
+| [Build Sign-Up Functionality](./build-sign-up-functionality/README.md)                      | Add sign-up functionality to a React app, allowing users to create accounts. |
+| [The `useContext()` Hook](./the-use-context-hook/README.md)                                 | Manage state using React's `useContext()` hook.                              |
+| [Use `localStorage` to Persist Sessions](./use-local-storage-to-persist-sessions/README.md) | Use a JWT in `localStorage` to persist user sessions.                        |
+| [Build Sign-Out Functionality](./build-sign-out-functionality/README.md)                    | Remove a JWT from `localStorage` to end user sessions.                       |
+| [Build Sign-In Functionality](./build-sign-in-functionality/README.md)                      | Add sign-in functionality utilizing a JWT in a React application.            |
+| [Conditionally Render in a Route](./conditionally-render-in-a-route/README.md)              | Implement a route that displays different components.                        |
+| [Make Authenticated Requests](./make-authenticated-requests/README.md)                      | Make authenticated requests to a back-end server with the JWT.               |
+
+## References
+
+📖 [Reference Materials](./references/README.md)
+
+## Internal
+
+### Prerequisites
 
 - React State Management
 - Controlled Forms in React
@@ -13,35 +38,18 @@ This module is designed to equip learners with the foundational skills and knowl
 - React Router DOM
 - JWT Authentication in Express APIs
 
-## Content
-
-| Lesson                                                                               | Skills                                                                                         |
-| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------- |
-| [Setup](./setup/README.md)                                                           | Setting up the development environment.                                                        |
-| [Concepts](./concepts/README.md)                                                     | Describe the process of JWT authentication within a React application                          |
-| [Creating an Authentication Gateway](./creating-an-authentication-gateway/README.md) | Implement a dynamic nav bar that adjusts its content based on the user's authentication status |
-| [Signing Up a New User](./signing-up-a-new-user/README.md)                           | Develop and integrate a controlled to register new users                                       |
-| [Signing In an Existing User](./signing-in-an-existing-user/README.md)               | Create and implement a form that allows existing users to log in                               |
-| [Using Local Storage](./using-local-storage/README.md)                               | Store a JWT in `localStorage` to persist user sessions                                         |
-| [Signing Out](./signing-out/README.md)                                               | Implement "log out" functionality by clearing a JWT from local storage                         |
-
-## Level Up content
-
-| Lesson                                                 | Skills                                                   |
-| ------------------------------------------------------ | -------------------------------------------------------- |
-| [The useContext Hook](./the-useContext-hook/README.md) | Manage app-level users through React's `useContext` hook |
-
-## References
-
-📖 [Reference Materials](./references/README.md)
-
-## Starter code
+### Starter code
 
 This module requires an existing Express API with JWT Authentication set up.
 
 🟢 [Express API starter code](https://git.generalassemb.ly/modular-curriculum-all-courses/express-api-jwt-auth-template)
 
-## Internal resources
+### Course landing pages
+
+- [SEB - Software Engineering Bootcamp](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/jwt-authentication-in-react/canvas-landing-pages/seb.html)
+- [Fallback](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/jwt-authentication-in-react/canvas-landing-pages/fallback.html)
+
+### Resources
 
 ✏️ [Instructor Guide](./internal-resources/instructor-guide.md)
 
@@ -51,4 +59,4 @@ This module requires an existing Express API with JWT Authentication set up.
 
 ---
 
-**Find a 👾 bug 👾 or have suggestions? [Let us know](https://git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/blob/main/module-feedback.md)!**
+**Find a 👾 bug 👾 or have suggestions? [Let us know](https://pages.git.generalassemb.ly/modular-curriculum-all-courses/universal-resources-internal/module-feedback.html)!**
