@@ -113,7 +113,7 @@ const App = () => {
         {/* Add the new `/` route! */}
         <Route path='/' element={user ? <Dashboard /> : <Landing /> } />
         <Route path='/sign-up' element={<SignUpForm />} />
-        <Route path="/sign-in" element={<SignInForm />} />
+        <Route path='/sign-in' element={<SignInForm />} />
       </Routes>
     </>
   );
@@ -133,15 +133,15 @@ Finally, let's make sure our users can get here easily by adding a couple new li
         <ul>
           <li>Welcome, {user.username}</li>
           {/* The new link */}
-          <li><Link to="/">Dashboard</Link></li>
-          <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
+          <li><Link to='/'>Dashboard</Link></li>
+          <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
         </ul>
       ) : (
         <ul>
           {/* Another new link */}
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/sign-in">Sign In</Link></li>
-          <li><Link to="/sign-up">Sign Up</Link></li>
+          <li><Link to='/'>Home</Link></li>
+          <li><Link to='/sign-in'>Sign In</Link></li>
+          <li><Link to='/sign-up'>Sign Up</Link></li>
         </ul>
       )}
     </nav>

@@ -26,11 +26,11 @@ We'll start by adding a **Sign Out** link to the `NavBar` component. This link w
         <ul>
           <li>Welcome, {user.username}</li>
           {/* Add the Sign Out link */}
-          <li><Link to="/">Sign Out</Link></li>
+          <li><Link to='/'>Sign Out</Link></li>
         </ul>
       ) : (
         <ul>
-          <li><Link to="/sign-up">Sign Up</Link></li>
+          <li><Link to='/sign-up'>Sign Up</Link></li>
         </ul>
       )}
     </nav>
@@ -62,11 +62,11 @@ const NavBar = () => {
         <ul>
           <li>Welcome, {user.username}</li>
           {/* Call the handleSignOut function on a click */}
-          <li><Link to="/" onClick={handleSignOut}>Sign Out</Link></li>
+          <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
         </ul>
       ) : (
         <ul>
-          <li><Link to="/sign-up">Sign Up</Link></li>
+          <li><Link to='/sign-up'>Sign Up</Link></li>
         </ul>
       )}
     </nav>

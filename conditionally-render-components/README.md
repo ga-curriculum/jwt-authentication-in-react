@@ -75,9 +75,9 @@ const App = () => {
       <NavBar user={user} />
       <Routes>
         { user ? (
-          <Route path="/" element={<Dashboard user={user} />} />
+          <Route path='/' element={<Dashboard user={user} />} />
         ) : (
-          <Route path="/" element={<Landing />} />
+          <Route path='/' element={<Landing />} />
         )}
       </Routes>
     </>

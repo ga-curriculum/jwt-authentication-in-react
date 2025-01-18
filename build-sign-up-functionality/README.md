@@ -64,41 +64,41 @@ const SignUpForm = () => {
       <p>{message}</p>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="username">Username:</label>
+          <label htmlFor='username'>Username:</label>
           <input
-            type="text"
-            id="name"
+            type='text'
+            id='name'
             value={username}
-            name="username"
+            name='username'
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor="password">Password:</label>
+          <label htmlFor='password'>Password:</label>
           <input
-            type="password"
-            id="password"
+            type='password'
+            id='password'
             value={password}
-            name="password"
+            name='password'
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor="confirm">Confirm Password:</label>
+          <label htmlFor='confirm'>Confirm Password:</label>
           <input
-            type="password"
-            id="confirm"
+            type='password'
+            id='confirm'
             value={passwordConf}
-            name="passwordConf"
+            name='passwordConf'
             onChange={handleChange}
             required
           />
         </div>
         <div>
           <button disabled={isFormInvalid()}>Sign Up</button>
-          <button onClick={() => navigate("/")}>Cancel</button>
+          <button onClick={() => navigate('/')}>Cancel</button>
         </div>
       </form>
     </main>
@@ -116,7 +116,7 @@ There's a lot to unpack in this component, so take a few minutes to read through
 
 ### Adding our `SignUpForm` to `App.jsx`
 
-Let's import the `SignUpForm` component into the `App` component and attach it to the `"/sign-up"` route, replacing our existing heading:
+Let's import the `SignUpForm` component into the `App` component and attach it to the `/sign-up` route, replacing our existing heading:
 
 ```jsx
 // src/App.jsx
@@ -157,7 +157,7 @@ const NavBar = () => {
   return (
     <nav>
       <ul>
-        <li><Link to="/sign-up">Sign Up</Link></li>
+        <li><Link to='/sign-up'>Sign Up</Link></li>
       </ul>
     </nav>
   );
@@ -242,7 +242,7 @@ If there is a token in the response, then we:
   - `atob()` - Decode this part of the token from base64 (an encoded - not encrypted - string) into human readable text.
   - `JSON.parse().payload` - Parse the decoded payload into a JavaScript object and get the specific data we attached in the back-end - the user payload data.
 
-If everything goes well, an object that looks like `{ username: 'user', _id: "6785cc89a998cb8ea1d14725" }` will be returned from this function.
+If everything goes well, an object that looks like `{ username: 'user', _id: '6785cc89a998cb8ea1d14725' }` will be returned from this function.
 
 > 🧠 A JWT is composed of three parts: a header, a payload, and a signature. These parts are encoded in Base64Url format and are separated by `.` dots . The header contains the token type and the hashing algorithm used, the payload contains the claims (data about the user and other metadata), and the signature is used to verify the token.
 

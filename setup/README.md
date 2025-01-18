@@ -33,13 +33,13 @@ Install the dependencies:
 npm i
 ```
 
-Open the project in your VS Code:
+Open the project in VS Code:
 
 ```bash
 code .
 ```
 
-Open the built-in terminal in VS Code. You'll need to set up a `.env` file that includes values for the  `MONGODB_URI` and `JWT_SECRET` before the app can function. Start by creating the `.env` file:
+Open the built-in terminal in VS Code. You'll need to set up a `.env` file that includes values for the `MONGODB_URI` and `JWT_SECRET` before the app can function. Start by creating the `.env` file:
 
 ```bash
 touch .env
@@ -79,7 +79,7 @@ Move into the `~/code/ga/lectures/express-api-jwt-auth-template` directory:
 cd ~/code/ga/lectures/express-api-jwt-auth-template
 ```
 
-Open the project in your VS Code:
+Open the project in VS Code:
 
 ```bash
 code .
@@ -234,7 +234,7 @@ Open the `App.jsx` file in the `src` directory and replace the contents of it wi
 ```jsx
 // src/App.jsx
 
-import NavBar from "./components/NavBar/NavBar";
+import NavBar from './components/NavBar/NavBar';
 
 const App = () => {
   
@@ -260,7 +260,7 @@ To start the development server and view our app in the browser, we'll use the f
 npm run dev
 ```
 
-If you're not running any other React apps, you should see that `Vite` is available on port number 5173. Open your browser and navigate to [`http://localhost:5173/`](http://localhost:5173). You should see the text "Navbar contents will go here" and a "Hello, friend!" heading on the page.
+If you're not running any other React apps, you should see that `Vite` is available on port number 5173. Open your browser and navigate to [`http://localhost:5173/`](http://localhost:5173). You should see the text **Navbar contents will go here** and a **Hello, friend!** heading on the page.
 
 ### GitHub setup
 
@@ -269,7 +269,7 @@ To add this project to GitHub, initialize a Git repository:
 ```bash
 git init
 git add .
-git commit -m "init commit"
+git commit -m 'init commit'
 ```
 
 Make a new repository on [GitHub](https://github.com/) named `react-jwt-auth-template`.
