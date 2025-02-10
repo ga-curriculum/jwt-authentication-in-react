@@ -26,6 +26,7 @@ courses {
       mls.theUseContextHook
       mls.useLocalStorageToPersistSessions
       mls.buildSignOutFunctionality
+      mls.buildSignInFunctionality
       mls.conditionallyRenderInARoute
       mls.makeAuthenticatedRequests
     }
@@ -40,6 +41,7 @@ courses {
       mls.theUseContextHook
       mls.useLocalStorageToPersistSessions
       mls.buildSignOutFunctionality
+      mls.buildSignInFunctionality
       mls.conditionallyRenderInARoute
       mls.makeAuthenticatedRequests
     }

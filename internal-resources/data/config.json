@@ -80,6 +80,16 @@
           "estimatedDeliveryTimeInMinutes": 0
         },
         {
+          "friendlyName": "Build Sign-In Functionality",
+          "dirName": "build-sign-in-functionality",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
           "friendlyName": "Conditionally Render in a Route",
           "dirName": "conditionally-render-in-a-route",
           "type": "Content",
@@ -181,6 +191,16 @@
         {
           "friendlyName": "Build Sign-Out Functionality",
           "dirName": "build-sign-out-functionality",
+          "type": "Content",
+          "skill": "",
+          "learningObjective": "",
+          "videoUrl": "",
+          "videoLengthInMinutes": 0,
+          "estimatedDeliveryTimeInMinutes": 0
+        },
+        {
+          "friendlyName": "Build Sign-In Functionality",
+          "dirName": "build-sign-in-functionality",
           "type": "Content",
           "skill": "",
           "learningObjective": "",
