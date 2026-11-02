@@ -15,10 +15,10 @@ Open your Terminal application and navigate to your `~/code/ga/lectures/` direct
 cd ~/code/ga/lectures/
 ```
 
-Clone the Express API with JWT Authentication template from the [solution code repo](https://git.generalassemb.ly/modular-curriculum-all-courses/express-api-jwt-auth-template):
+Clone the Express API with JWT Authentication template from the [solution code repo](https://github.com/ga-curriculum/express-api-jwt-auth-template):
 
 ```bash
-git clone https://git.generalassemb.ly/modular-curriculum-all-courses/express-api-jwt-auth-template.git
+git clone https://github.com/ga-curriculum/express-api-jwt-auth-template.git
 ```
 
 Move into the directory you just cloned the template repo into:
