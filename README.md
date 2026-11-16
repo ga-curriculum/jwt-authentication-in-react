@@ -42,7 +42,7 @@ By the end of this module, students will have constructed a robust authenticatio
 
 This module requires an existing Express API with JWT Authentication set up.
 
-🟢 [Express API starter code](https://git.generalassemb.ly/modular-curriculum-all-courses/express-api-jwt-auth-template)
+🟢 [Express API starter code](https://github.com/ga-curriculum/express-api-jwt-auth-template)
 
 ### Course landing pages
 
